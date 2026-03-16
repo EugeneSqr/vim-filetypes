@@ -5,7 +5,7 @@ set efm+=%f:%l:\ %m    " mypy
 set efm+=%-G%.%#       " discard all unmatched
 
 function! Lint()
-    cgetexpr system("mypy --install-types --non-interactive . && ruff check --output-format=concise")
+    cgetexpr system("mypy . && ruff check --output-format=concise")
     echo "done"
     cwindow
 endfunction
