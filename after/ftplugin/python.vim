@@ -1,8 +1,8 @@
 let test#python#pytest#options = '-svx'
 
-set efm=%f:%l:%c:\ %m  " ruff concise
-set efm+=%f:%l:\ %m    " mypy
-set efm+=%-G%.%#       " discard all unmatched
+setlocal efm=%f:%l:%c:\ %m  " ruff concise
+setlocal efm+=%f:%l:\ %m    " mypy
+setlocal efm+=%-G%.%#       " discard all unmatched
 
 function! Lint()
     cgetexpr system("mypy . && ruff check --output-format=concise")
@@ -20,5 +20,5 @@ function! LintFormatFix()
     echo "done"
 endfunction
 
-nnoremap <leader>L :call LintFormatFix()<CR>
-nnoremap <leader>l :call Lint()<CR>
+nnoremap <buffer> <leader>L :call LintFormatFix()<CR>
+nnoremap <buffer> <leader>l :call Lint()<CR>
