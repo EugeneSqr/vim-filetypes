@@ -1,3 +1,10 @@
+" wrapping for smaller screens and vertical splits
+setlocal wrap
+setlocal linebreak
+setlocal breakat-=\.
+setlocal breakindent
+setlocal showbreak=>>
+
 let test#python#pytest#options = '-svx'
 
 setlocal efm=%f:%l:%c:\ %m  " ruff concise
